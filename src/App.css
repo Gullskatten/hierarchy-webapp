@@ -1,0 +1,10 @@
+#input-token {
+    width: 750px;
+    margin: auto;
+}
+
+@media all and (max-width: 750px) {
+    #input-token {
+        width: 70%;
+    }
+}

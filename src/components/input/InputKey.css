@@ -1,0 +1,21 @@
+input {
+    border: 0;
+    background-color: transparent;
+    border-bottom: 1px solid black;
+    width: 100%;
+    height: 50px;
+    font-size: 1.5rem;
+    outline: none;
+    text-align: center;
+}
+
+input::placeholder {
+    color: lightgray;
+    font-style: italic;
+}
+
+@media all and (max-width: 750px) {
+    input {
+        font-size: 1.0rem;
+    }
+}
