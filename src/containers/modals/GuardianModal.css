@@ -1,0 +1,34 @@
+.overlay {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.guardian-modal {
+  width: 600px;
+  min-height: 300px;
+  background: white;
+  border-radius: 5px;
+}
+
+.guardian-modal-header {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.guardian-modal-header h2 {
+  margin: 0;
+  font-weight: 300;
+}
+
+.guardian-modal-body {
+  height: calc(300px - 100px);
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  flex-direction: column; 
+}

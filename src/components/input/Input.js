@@ -3,6 +3,6 @@ import './Input.css';
 
 export default class Input extends Component {
   render() {
-    return <input type="text" {...this.props} />;
+    return <input  autoComplete="off" type="text" {...this.props} />;
   }
 }

@@ -39,6 +39,21 @@ export const validateKey = key => {
   };
 };
 
+export const isTokenEmpty = token => ({
+  type: 'IS_TOKEN_EMPTY',
+  token
+});
+
+export const beginLoading = () => ({
+  type: "BEGIN_LOADING"
+})
+
+export const endLoading = duration => ({
+  type: "END_LOADING",
+  duration
+})
+
+
 export const validateSecret = (token, secret) => {
   return dispatch => {
     dispatch(sendValidateSecret());

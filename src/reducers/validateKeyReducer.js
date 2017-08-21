@@ -1,25 +1,37 @@
 const initialState = {
   referralUser: {},
+  isSuccess: false,
   error: {
-    hasFailed: false,
-    hasSecretFailed: false,
     message: ''
   },
-  loading: false
+  loading: false,
+  hasAttemptedChallenge: false
 };
 
 const validateKeyReducer = (state = initialState, action) => {
   switch (action.type) {
+    case 'IS_TOKEN_EMPTY':
+    if(action.token === "") {
+      return {
+        ...state,
+        hasAttemptedChallenge: false
+      }
+    }
+    return {
+      state
+    }
+
     case 'SEND_VALIDATE_KEY':
       return {
         ...state,
-        loading: true
+        loading: true,
+        hasAttemptedChallenge: true
       };
     case 'VALIDATE_KEY_SUCCESS':
       return {
         ...state,
         loading: false,
-        hasFailed: action.response.isSuccess,
+        isSuccess: action.response.isSuccess,
         referralUser: action.response.user
       };
     case 'VALIDATE_KEY_FAIL':
@@ -28,9 +40,9 @@ const validateKeyReducer = (state = initialState, action) => {
         ...state,
         error: {
           ...state.error,
-          hasFailed: action.response.response.data.isSuccess,
           message: action.response.response.data.message
         },
+        isSuccess: action.response.response.data.isSuccess,
         loading: false
       };
     default:

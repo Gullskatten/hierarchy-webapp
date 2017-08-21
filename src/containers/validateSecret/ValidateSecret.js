@@ -25,15 +25,15 @@ class ValidateSecret extends Component {
   };
 
   renderStatus() {
-    const { error, loading } = this.props.secretValidator;
+    const { error, loading, isSuccess } = this.props.secretValidator;
     return loading
       ? <h2 id="secret-validation-loading">Loading....</h2>
-      : error.hasFailed ? <h2 id="secret-validation-error">{error.message}</h2> : null;
+      : !isSuccess ? <h2 id="secret-validation-error">{error.message}</h2> : null;
   }
 
   render() {
     return (
-      <div id="input-secret">
+      <div id="input-secret" className="animated slideInRight">
         <SubmitForm onSubmit={this.validateSecret}>
           <Input
             id="input-secret-field"

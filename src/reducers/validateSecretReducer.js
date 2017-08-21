@@ -1,6 +1,6 @@
 const initialState = {
+  isSuccess: false,
   error: {
-    hasFailed: false,
     message: ''
   },
   loading: false
@@ -17,7 +17,7 @@ const validateSecretReducer = (state = initialState, action) => {
         return {
           ...state,
           loading: false,
-          hasFailed: action.response.isSuccess,
+          isSuccess: action.response.isSuccess,
           message: action.response.message
         };
       case 'VALIDATE_SECRET_FAIL':
@@ -26,9 +26,9 @@ const validateSecretReducer = (state = initialState, action) => {
           ...state,
           error: {
             ...state.error,
-            hasFailed: action.response.response.data.isSuccess,
             message: action.response.response.data.message
           },
+          isSuccess: action.response.response.data.isSuccess,
           loading: false
         };
     default:
