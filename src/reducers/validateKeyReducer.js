@@ -1,8 +1,8 @@
 const initialState = {
-  token: '',
-  username: '',
+  referralUser: {},
   error: {
     hasFailed: false,
+    hasSecretFailed: false,
     message: ''
   },
   loading: false
@@ -19,16 +19,17 @@ const validateKeyReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        token: action.response.token,
-        username: action.response.username
+        hasFailed: action.response.isSuccess,
+        referralUser: action.response.user
       };
     case 'VALIDATE_KEY_FAIL':
+      console.log(action.response.response.data.message);
       return {
         ...state,
         error: {
           ...state.error,
-          hasFailed: true,
-          message: action.response.message
+          hasFailed: action.response.response.data.isSuccess,
+          message: action.response.response.data.message
         },
         loading: false
       };

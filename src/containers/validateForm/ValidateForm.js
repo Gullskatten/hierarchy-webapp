@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import InputKey from '../../components/input/InputKey';
+import Input from '../../components/input/Input';
 import SubmitForm from '../../components/forms/SubmitForm';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -25,18 +25,17 @@ class ValidateForm extends Component {
   };
 
   renderStatus() {
-    const { error, loading } = this.props.validator;
-
+    const { error, loading } = this.props.tokenValidator;
     return loading
-      ? <h2>Loading....</h2>
-      : error.hasFailed ? <h2>{error.message}</h2> : null;
+      ? <h2 id="token-validation-loading">Loading....</h2>
+      : error.hasFailed ? <h2 id="token-validation-error">{error.message}</h2> : null;
   }
 
   render() {
     return (
       <div id="input-token">
         <SubmitForm onSubmit={this.validateKey}>
-          <InputKey
+          <Input
             id="input-token-field"
             placeholder="Type your reference token here.."
             onChange={this.inputKeyChanged}
@@ -58,7 +57,7 @@ const mapDispatchToProps = dispatch => {
 };
 
 const mapStateToProps = state => ({
-  validator: state.validator
+  tokenValidator: state.tokenValidator
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ValidateForm);

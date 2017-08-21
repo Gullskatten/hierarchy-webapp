@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './InputKey.css';
+import './Input.css';
 
-export default class InputKey extends Component {
+export default class Input extends Component {
   render() {
     return <input type="text" {...this.props} />;
   }

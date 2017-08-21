@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ValidateForm from '../../containers/validateForm/ValidateForm';
+import ValidateSecret from '../../containers/validateSecret/ValidateSecret';
 import './App.css';
 
 class App extends Component {
@@ -7,6 +8,7 @@ class App extends Component {
     return (
       <div id="app">
         <ValidateForm />
+        <ValidateSecret />
       </div>
     );
   }
