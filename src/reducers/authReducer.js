@@ -2,9 +2,9 @@ const initialState = {
   referralUser: {},
   tokenSuccess: false,
   secretSuccess: false,
-  message: '',
+  tokenStatusMessage: '',
+  secretStatusMessage: '',
   loading: false,
-  errorMessage: '',
   hasAttemptedChallenge: false
 };
 
@@ -19,12 +19,13 @@ const authReducer = (state = initialState, action) => {
     case 'VALIDATE_TOKEN_SUCCESS':
       return updateStateObject(state, {
         loading: false,
-        tokenSuccess: action.res.isSucess,
-        referralUser: action.res.user
+        tokenSuccess: action.res.isSuccess,
+        referralUser: action.res.user,
+        tokenStatusMessage: '',
       });
     case 'VALIDATE_TOKEN_ERROR':
       return updateStateObject(state, {
-        errorMessage: action.res.response.data.message,
+        tokenStatusMessage: action.res.response.data.message,
         tokenSuccess: action.res.response.data.isSuccess,
         loading: false
       });
@@ -34,12 +35,13 @@ const authReducer = (state = initialState, action) => {
       return updateStateObject(state, {
         loading: false,
         secretSuccess: action.res.isSuccess,
-        message: action.res.message
+        message: action.res.message,
+        secretStatusMessage: ''
       });
     case 'VALIDATE_SECRET_ERROR':
       return updateStateObject(state, {
         loading: false,
-        errorMessage: action.res.response.data.message,
+        secretStatusMessage: action.res.response.data.message,
         secretSuccess: action.res.response.data.isSuccess
       });
     default:

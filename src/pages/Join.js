@@ -5,7 +5,7 @@ import ValidateSecretForm from '../containers/auth/ValidateSecretForm';
 class Join extends Component {
   render() {
     return (
-      <div className="join">
+      <div className="join validator-wrapper">
         <ValidateTokenForm />
         <ValidateSecretForm />
       </div>

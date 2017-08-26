@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
+import Loader from './Loader';
 
 export default class ValidatorForm extends Component {
-  setValue = e => {
-    const { name, value } = e.target;
-
-    this.setState({
-      [name]: value
-    });
-  };
-
   handleOnSubmit = e => {
     e.preventDefault();
     this.props.onSubmit();
@@ -21,6 +14,8 @@ export default class ValidatorForm extends Component {
       placeholder,
       inputName,
       className,
+      onChange,
+      loading,
       ...rest
     } = this.props;
 
@@ -30,8 +25,10 @@ export default class ValidatorForm extends Component {
           type={inputType}
           placeholder={placeholder}
           name={inputName}
-          onChange={e => this.setValue(e)}
+          onChange={onChange}
+          autoComplete="off"
         />
+        {loading ? <center style={{marginTop: '1rem'}}><Loader /></center> : null}
       </form>
     );
   }
