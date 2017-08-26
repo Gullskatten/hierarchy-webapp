@@ -20,13 +20,9 @@ export default class ValidatorForm extends Component {
       inputType,
       placeholder,
       inputName,
-      isValid,
       className,
       ...rest
     } = this.props;
-    const isInputValidated = isValid
-      ? { border: '1px solid green' }
-      : { border: '1px solid red' };
 
     return (
       <form onSubmit={this.handleOnSubmit} className={className} {...rest}>
@@ -34,7 +30,6 @@ export default class ValidatorForm extends Component {
           type={inputType}
           placeholder={placeholder}
           name={inputName}
-          style={isInputValidated}
           onChange={e => this.setValue(e)}
         />
       </form>

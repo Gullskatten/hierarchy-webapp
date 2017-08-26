@@ -17,11 +17,10 @@ class ValidateSecretForm extends Component {
       <div>
         <h2>Secret here</h2>
         <ValidatorForm
-          className={'here goes token!'}
+          placeholder={'here goes secret!'}
           onSubmit={() => validateUserSecret(secret)}
           inputType={'text'}
           inputName={'secret'}
-          isValid={true}
         />
       </div>
     );

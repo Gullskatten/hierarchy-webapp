@@ -17,11 +17,10 @@ class ValidateTokenForm extends Component {
       <div>
         <h2>Token here</h2>
         <ValidatorForm
-          className={'here goes token!'}
+          placeholder={'here goes token!'}
           onSubmit={() => validateUserToken(token)}
           inputType={'text'}
           inputName={'token'}
-          isValid={true}
         />
       </div>
     );
