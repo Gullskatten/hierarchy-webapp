@@ -1,0 +1,10 @@
+.header {
+	height: 60px;
+	background-color: #2B303A;
+	line-height: 60px;
+	padding: 0 2rem;
+}
+
+.header .logo {
+	color: #fff;
+}

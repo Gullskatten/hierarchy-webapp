@@ -9,20 +9,33 @@ export default class ValidatorForm extends Component {
     });
   };
 
+  handleOnSubmit = e => {
+    e.preventDefault();
+    this.props.onSubmit();
+  };
+
   render() {
-    const { onSubmit, inputType, placeholder, inputName, isValid, className, ...rest } = this.props;
+    const {
+      onSubmit,
+      inputType,
+      placeholder,
+      inputName,
+      isValid,
+      className,
+      ...rest
+    } = this.props;
     const isInputValidated = isValid
-      ? { border: '1px solid red' }
-      : { border: '1px solid green' };
+      ? { border: '1px solid green' }
+      : { border: '1px solid red' };
 
     return (
-      <form onSubmit={onSubmit} className={className} {...rest}>
+      <form onSubmit={this.handleOnSubmit} className={className} {...rest}>
         <input
           type={inputType}
           placeholder={placeholder}
           name={inputName}
           style={isInputValidated}
-          onChange={() => this.setValue()}
+          onChange={e => this.setValue(e)}
         />
       </form>
     );

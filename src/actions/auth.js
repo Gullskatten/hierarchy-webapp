@@ -41,7 +41,7 @@ export const validateUserToken = token => {
 
 export const validateUserSecret = (token, secret) => {
   return dispatch => {
-    dispatch(sendValidateSecret());
+    dispatch(validateSecretRequest());
 
     return axios
       .post(`http://localhost:8095/user/validate/${token}/${secret}`)
