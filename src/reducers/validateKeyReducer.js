@@ -31,11 +31,11 @@ const validateKeyReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
+        hasAttemptedChallenge: false,
         isSuccess: action.response.isSuccess,
         referralUser: action.response.user
       };
     case 'VALIDATE_KEY_FAIL':
-      console.log(action.response.response.data.message);
       return {
         ...state,
         error: {

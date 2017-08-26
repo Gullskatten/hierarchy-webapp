@@ -17,8 +17,11 @@ class ValidateForm extends Component {
     const { inputKey } = this.state;
 
     beginLoading();
-    endLoading(2000);
+    setTimeout(() => {
     validateKey(inputKey);
+    endLoading();
+    }, 700);
+
   };
 
   inputKeyChanged = e => {

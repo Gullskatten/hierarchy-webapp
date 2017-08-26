@@ -19,10 +19,7 @@ class GuardianModal extends Component {
       'You will soon find out if your friend fooled you.. :-)'*/
     ];
 
-    const random = Math.floor(Math.random() * arrayOfWiseWords.length);
-
-
-
+  const random = Math.floor(Math.random() * arrayOfWiseWords.length);
 
   return arrayOfWiseWords[random];
   }
@@ -30,22 +27,18 @@ class GuardianModal extends Component {
   displayChallenges() {
     const isTokenChallengeSuccess = this.props.tokenValidator.isSuccess;
     const isSecretChallengeSuccess = this.props.secretValidator.isSuccess;
-    const isLoading = this.props.loadingService.isLoading;
 
-    console.log(isLoading);
-
-    if(!isLoading) {
       if(isTokenChallengeSuccess) {
         return <ValidateSecret/>
       } else {
         return <ValidateForm/>
       }
-    } else {
-      return <Loader/>
     }
-  }
 
   render() {
+
+      const isLoading = this.props.loadingService.isLoading;
+
       return(
         <div className="overlay">
           <div className="guardian-modal animated fadeIn">
@@ -55,6 +48,7 @@ class GuardianModal extends Component {
               <div className="guardian-modal-body">
                 <p>{this.getInspiringWord()}</p>
                 {this.displayChallenges()}
+                {isLoading ? <Loader/> : null}
               </div>
           </div>
         </div>

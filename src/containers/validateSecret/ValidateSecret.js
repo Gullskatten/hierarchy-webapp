@@ -33,7 +33,7 @@ class ValidateSecret extends Component {
 
   render() {
     return (
-      <div id="input-secret" className="animated slideInRight">
+      <div id="input-secret" className="animated bounce">
         <SubmitForm onSubmit={this.validateSecret}>
           <Input
             id="input-secret-field"
