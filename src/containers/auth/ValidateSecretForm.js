@@ -16,6 +16,12 @@ class ValidateSecretForm extends Component {
     });
   };
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.auth.tokenSuccess && nextProps.auth.secretSuccess) {
+      window.location.href = '/';
+    }
+  }
+
   render() {
     const { validateUserSecret, auth } = this.props;
     const { secret } = this.state;
